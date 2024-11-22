@@ -1,0 +1,18 @@
+{
+    "name": "draganvulesic/vbis2024",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "vulesic",
+            "email": "vulesic@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "ext-mysqli": "*"
+    }
+}
