@@ -1,5 +1,5 @@
 {
-    "name": "draganvulesic/vbis2024",
+    "name": "draganvulesic/vbis-2024",
     "autoload": {
         "psr-4": {
             "app\\": "./"

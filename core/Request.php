@@ -8,14 +8,14 @@ class Request
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
         $position = strpos($path, '?');
-        var_dump($path);
-        if ($position !== false)
+
+        if ($position === false)
             return $path;
 
         return substr($path, 0, $position);
     }
 
-    public function method(): string
+    public function method()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }

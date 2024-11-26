@@ -10,17 +10,33 @@ class Router
     {
         $this->request = new Request();
     }
+
     public array $routes = [];
 
-//    ['userCreate','UserController'];
+    public function get($path, $callback)
+    {
+        $this->routes['get'][$path] = $callback;
+    }
+
+    public function post($path, $callback)
+    {
+        $this->routes['post'][$path] = $callback;
+    }
+
     public function resolve()
     {
         $path = $this->request->path();
         $method = $this->request->method();
+        $callback = $this->routes[$method][$path] ?? false;
 
-        echo '<pre>';
-        var_dump($path);
-        var_dump($method);
+        if (is_array($callback)) {
+            $callback[0] = new $callback[0]();
+
+            return call_user_func($callback);
+        }
+
+        http_response_code(404);
+        echo "NOT FOUND!";
         exit;
     }
 }
