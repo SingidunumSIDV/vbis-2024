@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use app\controllers\AdminReportController;
+use app\controllers\AdsController;
 use app\controllers\AuthController;
 use app\controllers\HomeController;
 use app\controllers\ProductController;
@@ -29,6 +30,11 @@ $app->router->post("/processCreateUser", [UserController::class, 'processCreate'
 $app->router->get("/products", [ProductController::class, 'products']);
 $app->router->get("/updateProduct", [ProductController::class, 'update']);
 $app->router->post("/processUpdateProduct", [ProductController::class, 'processUpdate']);
+
+//Adds
+$app->router->get("/ads", [AdsController::class, 'ads']);
+$app->router->get("/updateAd", [AdsController::class, 'update']);
+$app->router->post("/processUpdateAdd", [AdsController::class, 'processUpdate']);
 
 //Auth
 $app->router->get("/registration", [AuthController::class, 'registration']);
@@ -57,5 +63,24 @@ $app->router->get("/getPricePerMonth", [UserReportController::class, 'getPricePe
 //Admin reports
 $app->router->get("/adminReports", [AdminReportController::class, 'adminReports']);
 $app->router->get("/getPricePerUser", [AdminReportController::class, 'getPricePerUser']);
+
+//gender reports
+$app->router->get("/getClicksByGender", [AdminReportController::class, 'getClicksByGender']);
+$app->router->get("/getViewsByGender", [AdminReportController::class, 'getViewsByGender']);
+
+//views
+$app->router->get("/getClicksByAgeGroup", [AdminReportController::class, 'getClicksByAgeGroup']);
+$app->router->get("/getViewsByAgeGroup", [AdminReportController::class, 'getViewsByAgeGroup']);
+
+//ads over time
+$app->router->get("/getClicksByAdOverTime", [AdminReportController::class, 'getClicksByAdOverTime']);
+$app->router->get("/getViewsByAdOverTime", [AdminReportController::class, 'getViewsByAdOverTime']);
+
+//Clicks by user
+$app->router->get("/getClicksByUser", [AdminReportController::class, 'getClicksByUser']);
+$app->router->get("/getViewsByUser", [AdminReportController::class, 'getViewsByUser']);
+
+
+
 
 $app->run();

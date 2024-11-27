@@ -1,7 +1,7 @@
 <?php
 
 use app\core\Application;
-
+var_dump(Application::$app->session->isInRole('Korisnik'));
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +137,7 @@ use app\core\Application;
     </div>
     <div class="sidenav-footer mx-3 ">
         <div class="card card-plain shadow-none" id="sidenavCard">
-            <img class="w-50 mx-auto" src="../assets/img/illustrations/icon-documentation.svg"
+            <img class="w-50 mx-auto" src="../assets/img/theme/react.jpg"
                  alt="sidebar_illustration">
             <div class="card-body text-center p-3 w-100 pt-0">
             </div>
